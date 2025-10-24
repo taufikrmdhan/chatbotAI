@@ -87,7 +87,10 @@ export default function Home() {
 
   return (
     <main className="min-h-screen p-6 flex flex-col items-center justify-start bg-gray-50">
-      <h1 className="text-2xl font-bold mb-6">🤖 Self Service</h1>
+      {/* <h1 className="text-2xl font-bold mb-6">🤖 Self Service</h1> */}
+      <h1 className="text-2xl font-bold mb-6 text-black dark:text-white">
+        🤖 Self Service
+      </h1>
 
       <div className="w-full max-w-xl flex flex-col gap-3 mb-6">
         {messages.map((msg, i) => (
@@ -103,13 +106,23 @@ export default function Home() {
             {msg.content}
           </div>
         ))}
-        {loading && <div className="text-sm text-gray-500 dark:text-gray-300">Mengetik...</div>}
-
+        {loading && (
+          <div className="text-sm text-gray-500 dark:text-gray-300">
+            Mengetik...
+          </div>
+        )}
       </div>
 
       <div className="w-full max-w-xl flex gap-2">
-        <input
+        {/* <input
           className="flex-1 border rounded px-4 py-2"
+          placeholder="Ketik pesan atau pilih nomor menu..."
+          value={input}
+          onChange={(e) => setInput(e.target.value)}
+          onKeyDown={handleKeyDown}
+        /> */}
+        <input
+          className="flex-1 border rounded px-4 py-2 text-black dark:text-white bg-white dark:bg-gray-800"
           placeholder="Ketik pesan atau pilih nomor menu..."
           value={input}
           onChange={(e) => setInput(e.target.value)}
