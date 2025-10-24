@@ -21,11 +21,32 @@ export default function Home() {
   const sendMessage = async () => {
     if (!input.trim()) return;
 
+    const text = input.trim().toLowerCase();
     const newMessages = [...messages, { role: 'user' as const, content: input }];
     setMessages(newMessages);
     setInput('');
     setLoading(true);
 
+    // ✅ Cek apakah user minta kembali ke menu awal
+    if (
+      text === 'menu awal' ||
+      text === 'kembali ke menu awal' ||
+      text === 'menu' ||
+      text === 'kembali ke menu'
+    ) {
+      setMessages([
+        ...newMessages,
+        {
+          role: 'bot',
+          content:
+            '🤖 Berikut menu utama:\n\n1. Internet mati\n2. Printer tidak menyala\n3. Tinta printer habis\n4. Kertas printer nyangkut\n5. Menu lainnya',
+        },
+      ]);
+      setLoading(false);
+      return;
+    }
+
+    // ✅ Kalau bukan "menu awal", lanjutkan ke API seperti biasa
     try {
       const res = await fetch('/api/chat', {
         method: 'POST',
@@ -80,6 +101,7 @@ export default function Home() {
         <button
           onClick={sendMessage}
           className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+          disabled={loading}
         >
           Kirim
         </button>
