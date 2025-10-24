@@ -88,7 +88,7 @@ export default function Home() {
   return (
     <main className="min-h-screen p-6 flex flex-col items-center justify-start bg-gray-50">
       {/* <h1 className="text-2xl font-bold mb-6">🤖 Self Service</h1> */}
-      <h1 className="text-2xl font-bold mb-6 text-black dark:text-white">
+      <h1 className="text-2xl font-bold mb-6 text-black">
         🤖 Self Service
       </h1>
 
@@ -123,7 +123,7 @@ export default function Home() {
         /> */}
         <input
           className="flex-1 border rounded px-4 py-2 text-black dark:text-white bg-white dark:bg-gray-800"
-          placeholder="Ketik pesan atau pilih nomor menu..."
+          placeholder="Ketik pesan atau pilih menu"
           value={input}
           onChange={(e) => setInput(e.target.value)}
           onKeyDown={handleKeyDown}
