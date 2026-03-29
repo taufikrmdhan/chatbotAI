@@ -81,7 +81,7 @@ Jika masih bermasalah, silakan hubungi bagian **IT** untuk bantuan lebih lanjut.
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({
-      model: 'tngtech/deepseek-r1t2-chimera:free',
+      model: 'anthropic/claude-haiku-4.5',
       messages: [
         {
           role: 'system',
@@ -89,10 +89,13 @@ Jika masih bermasalah, silakan hubungi bagian **IT** untuk bantuan lebih lanjut.
         },
         { role: 'user', content: message },
       ],
+      max_tokens: 3000,
     }),
   });
+  console.log('OpenRouter response status:', response.status);
 
   const data = await response.json();
+  console.log('OpenRouter response data:', data);
   const reply = data?.choices?.[0]?.message?.content || '[No response]';
 
   const finalReply = `${reply}\n\nJika masih mengalami kendala, silakan hubungi bagian **IT**.`;

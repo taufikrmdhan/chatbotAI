@@ -1,3 +1,4 @@
+/* eslint-disable react/react-in-jsx-scope */
 "use client";
 
 import { useEffect, useState } from "react";
@@ -72,6 +73,7 @@ export default function Home() {
         ]);
       }
     } catch (err) {
+      console.error("Fetch error:", err);
       setMessages([
         ...newMessages,
         { role: "bot" as const, content: "[Fetch error]" },
