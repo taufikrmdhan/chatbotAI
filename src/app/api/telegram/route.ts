@@ -42,12 +42,12 @@ export async function POST(req: Request) {
           'X-Title': 'Asisten Bank Jambi',
         },
         body: JSON.stringify({
-          model: 'anthropic/claude-haiku-4.5',
+          model: 'google/gemini-flash-1.5',
           messages: [
             { role: 'system', content: 'Kamu adalah asisten IT & Operasional Bank Jambi Cabang Kerinci.' },
             { role: 'user', content: userText },
           ],
-          max_tokens: 1000,
+          max_tokens: 200,
         }),
       });
 
