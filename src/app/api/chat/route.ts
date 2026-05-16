@@ -213,7 +213,7 @@ Jika masih mengalami kendala, silakan hubungi bagian **IT**.`;
     });
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  } catch (error: any) {
+  } catch (error) {
     console.error("Gemini Error:", error);
 
     return NextResponse.json({
